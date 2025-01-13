@@ -1,4 +1,17 @@
 function temperatureConversion(temperature, fromScale, toScale){
+    try{
+        if (typeof temperature === null || temperature === undefined || temperature === 'string' && isNaN(Number(temperature))){
+           throw new Error("Invalid temperature input");//checking the temp is valid
+        }
+
+        //the Scales have to be converted to UpperCase
+        fromScale = fromScale.UpperCase(); 
+        toScale = toScale.UpperCase();
+
+    } catch(error) {
+        console.error("An error occured:", error.message);
+        return null; //This will return nul if there is an error in the message
+    }
 
 // TODO: Validate the input:
 //        - Check if the temperature is null, undefined, or a non-numeric string. If so, throw an error "Invalid temperature input".
@@ -17,6 +30,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 
 
 }
+
 
 
 
