@@ -1,14 +1,32 @@
-// helper functions to help with Celsius, Fahrenheit and Kelvin conversions
+// Helper functions to help with Celsius, Fahrenheit and Kelvin conversions
+// From Celsius to Fahrenheit 
 function toFahrenheit(celsius){
     return (celsius * 9 / 5) + 32;
 }
 
+// From Fahrenheit to Celsius 
 function toCelsius(fahrenheit){
     return (fahrenheit -32) * 5 / 9;
 }
 
-function toKelvin(kelvin){
-    
+// From Celsius to Kelvin 
+function toKelvinCelsius(celsius){
+    return celsius + 273.15;
+}
+
+// From Fahrenheit to Kelvin 
+function toKelvinFahrenheit(fahrenheit){
+    return (fahrenheit - 32) * 5 / 9 + 273.15;
+}
+
+// From Kelvin to Celsius 
+function toCelsiusKelvin(kelvin){
+    return kelvin - 273.15;
+}
+
+// From Kelvin to Fahrenheit 
+function toFahrenheitKelvin(kelvin){
+    return (kelvin - 273.15) * 9 / 5 + 32;
 }
 
 
@@ -20,7 +38,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 
         // The Scales have to be converted to UpperCase
         // Check if fromScale & toScale are valid 
-        const validScales = ['C', 'F'];
+        const validScales = ['C', 'F', 'K'];
         fromScale = fromScale.toUpperCase();
         toScale = toScale.toUpperCase();
 
@@ -31,9 +49,9 @@ function temperatureConversion(temperature, fromScale, toScale){
         temperature = Number(temperature);
 
         let convertedTemperature;
-        if(fromScale === 'C' && toScale === 'F'){
+        if(fromScale === 'C' && toScale === 'F' || fromScale === 'C' && toScale === 'K' || fromScale === 'K' && toScale === 'F'){
             convertedTemperature = toFahrenheit(temperature);
-        } else if (fromScale === 'F' && toScale ==='C'){
+        } else if (fromScale === 'F' && toScale ==='C' || fromScale === 'K' && toScale === 'C' || fromScale === 'F' && toScale === 'K'){
             convertedTemperature = toCelsius(temperature);
         } else {
             convertedTemperature = temperature;
@@ -66,13 +84,12 @@ function temperatureConversion(temperature, fromScale, toScale){
 
 }
 
+// C to K
+console.log(temperatureConversion(0, 'C', 'K')); // Should be 273.15
+// console.log(temperatureConversion(25, 'C', 'K')); // Should be 298.15
+// console.log(temperatureConversion(-40, 'C', 'K')); // Should be 233.15
+// console.log(temperatureConversion(100, 'C', 'K')); // Should be 373.15
 
-//console.log(temperatureConversion(32, 'C', 'F'));
-// console.log(temperatureConversion(0, 'C', 'X'));
-//console.log(temperatureConversion(0, 'C', 'X'));
-//console.log(temperatureConversion('abc', 'C', 'F'));
-//console.log(temperatureConversion(null, 'C', 'F'));
-//console.log(temperatureConversion(undefined, 'C', 'F'));
 
 
 
