@@ -1,4 +1,4 @@
-// helper functions to convert Celsius to Fahrenheit and vice versa
+// helper functions to help with Celsius, Fahrenheit and Kelvin conversions
 function toFahrenheit(celsius){
     return (celsius * 9 / 5) + 32;
 }
@@ -7,6 +7,9 @@ function toCelsius(fahrenheit){
     return (fahrenheit -32) * 5 / 9;
 }
 
+function toKelvin(kelvin){
+    
+}
 
 
 function temperatureConversion(temperature, fromScale, toScale){
@@ -42,7 +45,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 
         } catch(error) {
             console.error("An error occured:", error.message);
-            return null; //This will return nul if there is an error in the message
+            throw error ; //This will re-throw the error to be handled again elsewhere
             }
 
 // TODO: Validate the input:
@@ -65,7 +68,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 
 
 //console.log(temperatureConversion(32, 'C', 'F'));
-console.log(temperatureConversion(50, 'B', 'X'));
+// console.log(temperatureConversion(0, 'C', 'X'));
 //console.log(temperatureConversion(0, 'C', 'X'));
 //console.log(temperatureConversion('abc', 'C', 'F'));
 //console.log(temperatureConversion(null, 'C', 'F'));
