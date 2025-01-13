@@ -1,17 +1,49 @@
+// helper functions to convert Celsius to Fahrenheit and vice versa
+function toFahrenheit(celsius){
+    return (celsius * 9 / 5) + 32;
+}
+
+function toCelsius(fahrenheit){
+    return (fahrenheit -32) * 5 / 9;
+}
+
+
+
 function temperatureConversion(temperature, fromScale, toScale){
     try{
-        if (typeof temperature === null || temperature === undefined || temperature === 'string' && isNaN(Number(temperature))){
+        if (temperature === null || temperature === undefined || (typeof temperature === 'string' && isNaN(Number(temperature)))){
            throw new Error("Invalid temperature input");//checking the temp is valid
         }
 
-        //the Scales have to be converted to UpperCase
-        fromScale = fromScale.UpperCase(); 
-        toScale = toScale.UpperCase();
+        // The Scales have to be converted to UpperCase
+        // Check if fromScale & toScale are valid 
+        const validScales = ['C', 'F'];
+        fromScale = fromScale.toUpperCase();
+        toScale = toScale.toUpperCase();
 
-    } catch(error) {
-        console.error("An error occured:", error.message);
-        return null; //This will return nul if there is an error in the message
-    }
+        if(!validScales.includes(fromScale) || !validScales.includes(toScale)){
+            throw new Error("Invalid conversion type or input scale");
+        }
+
+        temperature = Number(temperature);
+
+        let convertedTemperature;
+        if(fromScale === 'C' && toScale === 'F'){
+            convertedTemperature = toFahrenheit(temperature);
+        } else if (fromScale === 'F' && toScale ==='C'){
+            convertedTemperature = toCelsius(temperature);
+        } else {
+            convertedTemperature = temperature;
+        }
+        
+        
+        return convertedTemperature;
+        //return {temperature, fromScale, toScale, convertedTemperature}
+
+        } catch(error) {
+            console.error("An error occured:", error.message);
+            return null; //This will return nul if there is an error in the message
+            }
 
 // TODO: Validate the input:
 //        - Check if the temperature is null, undefined, or a non-numeric string. If so, throw an error "Invalid temperature input".
@@ -30,6 +62,16 @@ function temperatureConversion(temperature, fromScale, toScale){
 
 
 }
+
+
+//console.log(temperatureConversion(32, 'C', 'F'));
+console.log(temperatureConversion(50, 'B', 'X'));
+//console.log(temperatureConversion(0, 'C', 'X'));
+//console.log(temperatureConversion('abc', 'C', 'F'));
+//console.log(temperatureConversion(null, 'C', 'F'));
+//console.log(temperatureConversion(undefined, 'C', 'F'));
+
+
 
 
 
