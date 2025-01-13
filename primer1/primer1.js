@@ -49,13 +49,22 @@ function temperatureConversion(temperature, fromScale, toScale){
         temperature = Number(temperature);
 
         let convertedTemperature;
-        if(fromScale === 'C' && toScale === 'F' || fromScale === 'C' && toScale === 'K' || fromScale === 'K' && toScale === 'F'){
+        if(fromScale === 'C' && toScale === 'F'){
             convertedTemperature = toFahrenheit(temperature);
-        } else if (fromScale === 'F' && toScale ==='C' || fromScale === 'K' && toScale === 'C' || fromScale === 'F' && toScale === 'K'){
+        } else if (fromScale === 'F' && toScale ==='C'){
             convertedTemperature = toCelsius(temperature);
+        } else if(fromScale === 'C' && toScale === 'K'){
+            convertedTemperature = toKelvinCelsius(temperature);
+        } else if (fromScale === 'K' && toScale ==='C'){
+            convertedTemperature = toCelsiusKelvin(temperature);
+        } else if(fromScale === 'F' && toScale === 'K'){
+            convertedTemperature = toKelvinFahrenheit(temperature);
+        } else if (fromScale === 'K' && toScale ==='F'){
+            convertedTemperature = toFahrenheitKelvin(temperature);
         } else {
-            convertedTemperature = temperature;
+            convertedTemperature = temperature; //If there is no conversion needed it willl stay the same
         }
+
         
         
         return convertedTemperature;
@@ -85,7 +94,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 }
 
 // C to K
-console.log(temperatureConversion(0, 'C', 'K')); // Should be 273.15
+// console.log(temperatureConversion(0, 'C', 'K')); // Should be 273.15
 // console.log(temperatureConversion(25, 'C', 'K')); // Should be 298.15
 // console.log(temperatureConversion(-40, 'C', 'K')); // Should be 233.15
 // console.log(temperatureConversion(100, 'C', 'K')); // Should be 373.15
