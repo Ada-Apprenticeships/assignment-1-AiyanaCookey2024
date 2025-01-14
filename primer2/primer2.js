@@ -2,6 +2,27 @@
 // TODO: Write a function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks = 1)
 // that simulates shuffling and dealing a deck of cards.
 
+// const numPlayers = 4;
+// const cardsPerPlayer = 5;
+// const shuffleAndDeal = ()
+
+//this function will go through the deck of cards which is 52, which will use a loop and continue until the last card of the deck 
+//math.random generates a random no. between 0 and 1
+//math.floor rounds the number to the nearest whole number
+
+const cards = ["Hearts", "Diamonds", "Clubs", "Spades"];
+const values = ["Ace", "King", "Queen", "Jack",
+                "2", "3", "4", "5", "6", "7",
+                "8", "9", "10"];
+
+function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks){
+    for (let i = 0; i < numDecks.length; i++){
+        let shuffle = Math.floor(Math.randon()* (desk.length));
+
+
+    }
+}
+
 // TODO: Create a standard 52-card deck (or 104 if numDecks is 2).
 
 // TODO: Implement input validation to handle invalid inputs:
