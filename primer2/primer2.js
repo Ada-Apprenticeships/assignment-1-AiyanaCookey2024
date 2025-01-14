@@ -22,6 +22,8 @@ function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks){
         for(let value in values){
             deck.push(`${value} of ${suit}`);
         }
+
+    for(let i =deck.length -1)
         let shuffle = Math.floor(Math.randon()* (desk.length));
 
 
