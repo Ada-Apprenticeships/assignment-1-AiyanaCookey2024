@@ -10,13 +10,18 @@
 //math.random generates a random no. between 0 and 1
 //math.floor rounds the number to the nearest whole number
 
-const cards = ["Hearts", "Diamonds", "Clubs", "Spades"];
-const values = ["Ace", "King", "Queen", "Jack",
+let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+let values = ["Ace", "King", "Queen", "Jack",
                 "2", "3", "4", "5", "6", "7",
                 "8", "9", "10"];
+let deck = []; //representing the entire deck of cards
 
+// Building the deck - this will combine every suit with every value 
 function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks){
-    for (let i = 0; i < numDecks.length; i++){
+    for (let suit in suits){
+        for(let value in values){
+            deck.push(`${value} of ${suit}`);
+        }
         let shuffle = Math.floor(Math.randon()* (desk.length));
 
 
