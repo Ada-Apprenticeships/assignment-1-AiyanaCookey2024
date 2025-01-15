@@ -18,18 +18,21 @@ let deck = []; //representing the entire deck of cards
 
 // Building the deck - this will combine every suit with every value 
 function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks){
-    for (let suit in suits){
-        for(let value in values){
+    for (let suit of suits) {
+        for(let value of values) {
             deck.push(`${value} of ${suit}`);
         }
-
-    for(let i =deck.length -1)
-        let shuffle = Math.floor(Math.randon()* (desk.length));
-
-
+    }
+//Going through the last card to the first card in the deck
+    for (let i = deck.length - 1; i > 0; i--){
+        let j = Math.floor(Math.random() * (i + 1)); // multiplying by i + 1 scales this to a range of 0 to i + 1
+        [deck[i], deck[j]] = [deck[j], deck[i]];
     }
 }
 
+// shuffleAndDeal(4, 5, 1);
+// console.log(deck);
+//console.log(shuffleAndDeal(2, 5, 1))
 // TODO: Create a standard 52-card deck (or 104 if numDecks is 2).
 
 // TODO: Implement input validation to handle invalid inputs:
