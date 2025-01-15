@@ -1,11 +1,35 @@
 // TODO: Implement the createLinkedList function
 function createLinkedList(posts) {
+  if (!Array.isArray(posts) || posts.length === 0) {
+    return null;
+  }
+
+const head = {data: posts[0], next: null}; //Creating the head node of the Linked List 
+let current = head;
+for (let i = 1; i < posts.length; i++) {
+  const post = posts[i];
+  if (typeof post.text !== 'string' || typeof post.timestamp !== 'number' || typeof post.author !== 'string') {
+    throw new Error('Invalid post structure');
+  }
+  return head;
+}
+
+
+for (let i = 1; i < posts.length; i++) {
+  current.next = { data: numbers[i], next: null};
+  current = current.next;
+}
+
+
+
+
   // TODO: Check if the input 'posts' is valid (an array with at least one element)
   // TODO: Iterate through each post in the 'posts' array
   // TODO: Validate the structure of each post (ensure it has 'text', 'timestamp', and 'author' properties with correct types and values)
   // TODO: If any post has an invalid structure, throw an error
   // TODO: Create the linked list with the validated posts
   // TODO: Return the head of the linked list
+
 }
 
 // TODO: Implement the searchSocialMediaFeed function
