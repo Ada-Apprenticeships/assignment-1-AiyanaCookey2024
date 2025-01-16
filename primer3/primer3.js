@@ -33,14 +33,16 @@ for (let i = 1; i < posts.length; i++) {
 return head;
 }
 
+const posts = ([
+  { text: 'Hello world!', timestamp: '2024-03-11 10:00:00', author: 'Alice' },
+  { text: 'Having a great day!', timestamp: '2024-03-11 11:30:00', author: 'Bob' },
+  { text: 'Just finished a fantastic game.', timestamp: '2024-03-11 12:15:00', author: 'Aqil' },
+]);
 
+// const searchTerm = 'great';
+const linkedList = createLinkedList(posts);
 
-// const validPosts = ([
-//   { text: 'Hello world!', timestamp: '2024-03-11 10:00:00', author: 'Alice' },
-//   { text: 'Having a great day!', timestamp: '2024-03-11 11:30:00', author: 'Bob' },
-//   { text: 'Just finished a fantastic game.', timestamp: '2024-03-11 12:15:00', author: 'Aqil' },
-// ]);
-
+console.log(linkedList);
 // const validPosts = createLinkedList(validPosts);
 // console.log(linkedList);
 
