@@ -75,6 +75,8 @@ function temperatureConversion(temperature, fromScale, toScale){
             throw error ; //This will re-throw the error to be handled again elsewhere
             }
 
+        }
+
 // TODO: Validate the input:
 //        - Check if the temperature is null, undefined, or a non-numeric string. If so, throw an error "Invalid temperature input".
 //        - Convert the temperature to a number.
@@ -91,7 +93,7 @@ function temperatureConversion(temperature, fromScale, toScale){
 //        - Use the helper functions to perform the actual conversions.
 
 
-}
+
 
 // C to K
 // console.log(temperatureConversion(0, 'C', 'K')); // Should be 273.15

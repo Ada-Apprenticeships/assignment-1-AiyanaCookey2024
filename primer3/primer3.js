@@ -33,25 +33,16 @@ for (let i = 1; i < posts.length; i++) {
 return head;
 }
 
-const posts = ([
-  { text: 'Hello world!', timestamp: '2024-03-11 10:00:00', author: 'Alice' },
-  { text: 'Having a great day!', timestamp: '2024-03-11 11:30:00', author: 'Bob' },
-  { text: 'Just finished a fantastic game.', timestamp: '2024-03-11 12:15:00', author: 'Aqil' },
-]);
+// const posts = ([
+//   { text: 'Hello world!', timestamp: '2024-03-11 10:00:00', author: 'Alice' },
+//   { text: 'Having a great day!', timestamp: '2024-03-11 11:30:00', author: 'Bob' },
+//   { text: 'Just finished a fantastic game.', timestamp: '2024-03-11 12:15:00', author: 'Aqil' },
+// ]);
 
-// const searchTerm = 'great';
-const linkedList = createLinkedList(posts);
+// // const searchTerm = 'great';
+// const linkedList = createLinkedList(posts);
 
-console.log(linkedList);
-// const validPosts = createLinkedList(validPosts);
 // console.log(linkedList);
-
-  // TODO: Check if the input 'posts' is valid (an array with at least one element)
-  // TODO: Iterate through each post in the 'posts' array
-  // TODO: Validate the structure of each post (ensure it has 'text', 'timestamp', and 'author' properties with correct types and values)
-  // TODO: If any post has an invalid structure, throw an error
-  // TODO: Create the linked list with the validated posts
-  // TODO: Return the head of the linked list
 
 
 // TODO: Implement the searchSocialMediaFeed function
@@ -59,10 +50,13 @@ function searchSocialMediaFeed(feed, keyword) {
   if (!feed || !keyword || typeof keyword !== 'string') {
     throw new Error('Invalid feed or keyword');
   }
+
+  const results = [];
+  const keywordWords = keyword.toLowerCase().split(' '); // Normalise the key for case-insenstive search and splitting into individual words
+  const current = feed.head;
+  
   // TODO: Handle the case where the feed is empty
   // TODO: Initialise an empty array to store the search results
-  // TODO: Normalise the keyword for case-insensitive search
-  // TODO: Split the keyword into individual words
   // TODO: Traverse the linked list
   // TODO: Normalise the text of the current post for case-insensitive search
   // TODO: Split the text of the current post into individual words
