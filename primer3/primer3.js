@@ -48,13 +48,27 @@ return head;
 // TODO: Implement the searchSocialMediaFeed function
 function searchSocialMediaFeed(feed, keyword) {
   if (!feed || !keyword || typeof keyword !== 'string') {
-    throw new Error('Invalid feed or keyword');
+   return []; // Return an empty array if the feed is empty or the keyword is invalid
   }
 
   const results = [];
-  const keywordWords = keyword.toLowerCase().split(' '); // Normalise the key for case-insenstive search and splitting into individual words
-  const current = feed.head;
+  let current = feed;
+  const normalisedKeyword = keyword.toLowerCase(); // Normalise the key for case-insenstive search and splitting into individual words
+  const keywordWords = normalisedKeyword.split(/\s+/); // Split the keyword into individual words
+
   
+  while (current) {
+    const normalisedText = current.data.text.toLowerCase();
+    const textWords = normalisedText.split(/\s+/);
+    const hasPartialMatch = keywordWords.some((keywordWord) => textWords.some((textWord) => textWord.includes(keywordWord)));
+    if (hasPartialMatch){
+      results.push(current.data);
+    }
+    current = current.next;
+  }
+  return results;
+}
+
   // TODO: Handle the case where the feed is empty
   // TODO: Initialise an empty array to store the search results
   // TODO: Traverse the linked list
@@ -63,7 +77,7 @@ function searchSocialMediaFeed(feed, keyword) {
   // TODO: Check if any keyword word is partially present in any text word
   // TODO: If there's a partial match, add the current post to the results
   // TODO: Return the array of search results
-}
+
 
 // ADDITIONAL TODO - The suggested functions above can be refactored into multiple functions if you think appropriate.
 
