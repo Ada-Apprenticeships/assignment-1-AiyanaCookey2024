@@ -2,25 +2,25 @@ import Product from './Product.js';
 
 export class Electronics extends Product {
     #brand;
-    #warrantly;
+    #warranty;
   
     constructor(id, name, price, quantity, brand, warranty) {
     super(id, name, price, quantity); // Call the parent class constructor
       this.#brand = brand;
-      this.#m = material;
+      this.#warranty = warranty;
     }
         
-    getSize() {
-        return this.#size;
+    getBrand() {
+        return this.#brand;
       }
   
-    getMaterial() {
-        return this.#material;
+    getWarranty() {
+        return this.#warranty;
       }
 
     getProductDetails() {
         const productDetails = super.getProductDetails();
-        return { ...productDetails, size: this.#size, material: this.#material };// returning the product details
+        return { ...productDetails, brand: this.#brand, warranty: this.#warranty };// returning the product details
       }
     }
 
