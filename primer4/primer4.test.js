@@ -1,6 +1,8 @@
 // Import the necessary modules
 import Product from './Product.js';
 import Inventory from './Inventory.js';
+import Electronics from './Electronics.js';
+import Clothing from './Clothing.js';
 
 describe('Inventory', () => {
   let inventory;
