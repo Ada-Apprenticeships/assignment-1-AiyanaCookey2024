@@ -11,43 +11,46 @@ const product2 = new Product("B456", "Jeans", 49.99, 50);
 const clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
 const electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "`1 year");
 
-//Add products to the inventory
-try{
-  inventory.addProduct(product1);
-  inventory.addProduct(product2);
-  inventory.addProduct(clothing1);
-  inventory.addProduct(electronics1);}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+inventory.addProduct(product1);
+console.log(product1.getProductDetails());
 
-//Update the quantity of a product
-try {
-  inventory.updateQuantity("A123", 50);
-}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+// //Add products to the inventory
+// try{
+//   inventory.addProduct(product1);
+//   inventory.addProduct(product2);
+//   inventory.addProduct(clothing1);
+//   inventory.addProduct(electronics1);}
+// catch(error) {
+//   console.error("An error occurred:", error.message);
+// }
 
-//Retrieve a product from the inventory
-try {
-  const retrievedProduct = inventory.getProduct("B456");
-  console.log(retrievedProduct);
-}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+// //Update the quantity of a product
+// try {
+//   inventory.updateQuantity("A123", 50);
+// }
+// catch(error) {
+//   console.error("An error occurred:", error.message);
+// }
 
-//Remove a product from the inventory
-try {
-  inventory.removeProduct("A123");
-}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+// //Retrieve a product from the inventory
+// try {
+//   const retrievedProduct = inventory.getProduct("B456");
+//   console.log(retrievedProduct);
+// }
+// catch(error) {
+//   console.error("An error occurred:", error.message);
+// }
+
+// //Remove a product from the inventory
+// try {
+//   inventory.removeProduct("A123");
+// }
+// catch(error) {
+//   console.error("An error occurred:", error.message);
+// }
 
 
-console.log("New Product: ", product1.getProductDetails());
+// console.log("New Product: ", product1.getProductDetails());
 
 //getProductDetails() method is overrideen in teh subclasses to include the unique attributes
 //add additional tests to primer.test.js to verify the functiona;ity of your extended inventory management system

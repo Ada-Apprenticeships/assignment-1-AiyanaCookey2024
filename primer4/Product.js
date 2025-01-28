@@ -6,9 +6,9 @@ class Product {
   
     constructor(id, name, price, quantity) {
       // To prevent instantiation of the abstract class
-      if (new.target === Product) {
-        throw new Error("Cannot instantiate an abstract class.");
-      }
+      // if (new.target === Product) {
+      //   throw new Error("Cannot instantiate an abstract class.");
+      // }
       
       this.#id = id;
       this.#name = name;

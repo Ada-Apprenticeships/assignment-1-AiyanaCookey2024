@@ -27,5 +27,5 @@ export class Clothing extends Product {
    
     
     
-  export default Inventory;
+  export default Clothing;
     

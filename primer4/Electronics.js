@@ -27,5 +27,5 @@ export class Electronics extends Product {
    
     
     
-  export default Inventory;
+  export default Electronics;
     
