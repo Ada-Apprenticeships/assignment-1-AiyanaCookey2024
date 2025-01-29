@@ -5,17 +5,17 @@ class Product {
     #quantity;
   
     constructor(id, name, price, quantity) {
-      // To prevent instantiation of the abstract class
-      // if (new.target === Product) {
-      //   throw new Error("Cannot instantiate an abstract class.");
-      // }
+      //To prevent instantiation of the abstract class
+      if (new.target === Product) {
+        throw new Error("Cannot instantiate abstract class.");
+      }
       
       this.#id = id;
       this.#name = name;
       this.#price = price;
       this.#quantity = quantity;
     }
-  
+
     get id() {
       return this.#id;
     }
@@ -30,17 +30,16 @@ class Product {
       return this.#quantity;
     }
     
-    set quantity(newQuantity) {
+    set quantity(newQuantity) {{
+      if(newQuantity < 0) {
+        throw new Error("Quantity cannot be negative.");
+      }
+    }
       this.#quantity = newQuantity;
     }
   
     getProductDetails() {
-      return {
-        id: this.id,
-        name: this.name,
-        price: this.price,
-        quantity: this.quantity,
-      };
+      throw new Error("Method 'getProductDetails()' must be implemented in subclasses");
     }
   }
 
