@@ -3,10 +3,12 @@ import Product from './Product.js';
 import Inventory from './Inventory.js';
 import Electronics from './Electronics.js';
 import Clothing from './Clothing.js';
+import ProductFactory from './Factory.js';
 
 describe('Inventory', () => {
   let inventory;
   let product1, product2, electronics1, clothing1;
+  let factory;
 
   beforeEach(() => {
     inventory = new Inventory();
@@ -14,6 +16,7 @@ describe('Inventory', () => {
     product2 = new Product("B456", "Jeans", 49.99, 50);
     electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "1 year");
     clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
+    factory = new ProductFactory();
   });
 
   describe('Adding Products', () => {
@@ -55,6 +58,7 @@ describe('Inventory', () => {
     });
   });
 
+  
   describe('Retrieving Product Details', () => {
     test('can retrieve the details of products', () => {
         inventory.addProduct(product1);
@@ -80,23 +84,47 @@ describe('Inventory', () => {
           id: "C789",
           name: "Dress",
           price: 89.99,
-          quantity: 20
+          quantity: 20,
+          size: "M",
+          material: "Cotton"
       });
         expect(inventory.getProduct("D101")).toEqual({
           id: "D101",
           name: "Smartphone",
           price: 699.99,
-          quantity: 15
+          quantity: 15,
+          brand: "Apple",
+          warranty: "1 year"
+    });   
     });
+  }); 
+  
+  describe('Factory Design Pattern', () => {
+    test('can create different types of products using the factory', () => {
+      const clothing2 = factory.createProduct("clothing","E111", "Shirt", 29.99, 30, "S", "Polyester");
+      const electronics2 = factory.createProduct("electronics","F222", "Laptop", 1299.99, 10, "Dell", "2 years");
 
-        
-    });
+      expect(clothing2).toBeInstanceOf(Clothing);
+      expect(electronics2).toBeInstanceOf(Electronics);
 
-  describe('Throws error when retrieving details of a non-existent product', () => {
-    test('throws error when retrieving details of a non-existent product', () => {
-        expect(() => inventory.getProduct("C789")).toThrowError(`Product with ID C789 not found.`);
-      });
+      expect(clothing2.getProductDetails()).toEqual({
+        id: "E111",
+        name: "Shirt",
+        price: 29.99,
+        quantity: 30,
+        size: "S",
+        material: "Polyester"
+      })
+
+      expect(electronics2.getProductDetails()).toEqual({
+        id: "F222",
+        name: "Laptop",
+        price: 1299.99,
+        quantity: 10,
+        brand: "Dell",
+        warranty: "2 years"
+      })
     });
-   
   });
 });
+

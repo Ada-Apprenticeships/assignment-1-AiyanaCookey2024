@@ -5,6 +5,12 @@ class Product {
     #quantity;
   
     constructor(id, name, price, quantity) {
+      if (typeof id !== "string" || id === "") {
+        throw new Error("ID must be a non-empty string.");
+      }
+      // if (this.constructor === Product) {
+      //   throw new Error("Abstract class 'Product' cannot be instantiated.");
+      // }
       
       this.#id = id;
       this.#name = name;

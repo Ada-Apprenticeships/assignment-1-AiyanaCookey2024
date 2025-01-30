@@ -6,7 +6,7 @@ import Clothing from "./Clothing.js";
 
 // Sample usage
 const inventory = new Inventory();
-const product1 = new Product("A123", "T-shirt", 19.99, 100);
+const product1 = new Product("A123", "T-shirt", 19.99, 100);//can only instantiate Clothing or Electronics
 const product2 = new Product("B456", "Jeans", 49.99, 50);
 const clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
 const electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "`1 year");
