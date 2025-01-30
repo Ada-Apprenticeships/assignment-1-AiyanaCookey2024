@@ -19,6 +19,9 @@ class Product {
     }
 
     get id() {
+      if (typeof this.#id !== "string" || this.#id === "") {
+        throw new Error("ID must be a non-empty string.");
+      }
       return this.#id;
     }
     get name() {
