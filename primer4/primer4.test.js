@@ -6,12 +6,14 @@ import Clothing from './Clothing.js';
 
 describe('Inventory', () => {
   let inventory;
-  let product1, product2;
+  let product1, product2, electronics1, clothing1;
 
   beforeEach(() => {
     inventory = new Inventory();
     product1 = new Product("A123", "T-shirt", 19.99, 100);
     product2 = new Product("B456", "Jeans", 49.99, 50);
+    electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "1 year");
+    clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
   });
 
   describe('Adding Products', () => {
@@ -57,6 +59,8 @@ describe('Inventory', () => {
     test('can retrieve the details of products', () => {
         inventory.addProduct(product1);
         inventory.addProduct(product2);
+        inventory.addProduct(clothing1);
+        inventory.addProduct(electronics1);
         
         expect(inventory.getProduct("A123")).toEqual({
             id: "A123",
@@ -71,6 +75,28 @@ describe('Inventory', () => {
             price: 49.99,
             quantity: 50
         });
+
+        expect(inventory.getProduct("C789")).toEqual({
+          id: "C789",
+          name: "Dress",
+          price: 89.99,
+          quantity: 20
+      });
+        expect(inventory.getProduct("D101")).toEqual({
+          id: "D101",
+          name: "Smartphone",
+          price: 699.99,
+          quantity: 15
     });
+
+        
+    });
+
+  describe('Throws error when retrieving details of a non-existent product', () => {
+    test('throws error when retrieving details of a non-existent product', () => {
+        expect(() => inventory.getProduct("C789")).toThrowError(`Product with ID C789 not found.`);
+      });
+    });
+   
   });
 });

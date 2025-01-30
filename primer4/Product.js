@@ -5,10 +5,6 @@ class Product {
     #quantity;
   
     constructor(id, name, price, quantity) {
-      //To prevent instantiation of the abstract class
-      if (new.target === Product) {
-        throw new Error("Cannot instantiate abstract class.");
-      }
       
       this.#id = id;
       this.#name = name;
@@ -39,8 +35,12 @@ class Product {
     }
   
     getProductDetails() {
-      throw new Error("Method 'getProductDetails()' must be implemented in subclasses");
-    }
+      return {
+        id: this.#id,
+        name: this.#name,
+        price: this.#price,
+        quantity: this.#quantity
+      }
   }
-
+}
   export default Product;

@@ -11,37 +11,37 @@ const product2 = new Product("B456", "Jeans", 49.99, 50);
 const clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
 const electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "`1 year");
 
-// Add products to the inventory
+//Add products to the inventory
 inventory.addProduct(product1);
+inventory.addProduct(product2);
 console.log(product1.getProductDetails());
 
 inventory.addProduct(clothing1);
-inventory.addProduct(products2);
 inventory.addProduct(electronics1);
 
 
 // Update the quantity of a product
-try {
-  inventory.updateQuantity("A123", 50);
-}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+inventory.updateQuantity("A123", 50);
 
 // Retrieve a product from the inventory
-try {
-  const retrievedProduct = inventory.getProduct("B456");
-  console.log(retrievedProduct);
-}
-catch(error) {
-  console.error("An error occurred:", error.message);
-}
+const retrievedProduct = inventory.getProduct("B456");
+console.log(retrievedProduct);
+
+// Check if a piece of clothing exists in the inventory
+const clothingExists = inventory.getProduct("C789");
+console.log(clothingExists);
+
+//Check if an electronic item exists in the inventory
+const electronicsExists = inventory.getProduct("D101");
+console.log(electronicsExists);
 
 //Remove a product from the inventory
-try {
-  inventory.removeProduct("A123");
-}
-catch(error) {
+inventory.removeProduct("A123");
+
+//Try to get a removed product
+try{
+  inventory.getProduct("A123");
+} catch (error) {
   console.error("An error occurred:", error.message);
 }
 
@@ -51,17 +51,4 @@ catch(error) {
 //getProductDetails() method is overrideen in teh subclasses to include the unique attributes
 //add additional tests to primer.test.js to verify the functiona;ity of your extended inventory management system
 
-
-// try {
-//   inventory.addProduct(product1);
-//   inventory.addProduct(product2);
-//   inventory.addProduct(clothing1);
-//   inventory.addProduct(electronics1);
-//   inventory.updateQuantity("A123", 50);
-//   const retrievedProduct = inventory.getProduct("B456");
-//   console.log(retrievedProduct);
-//   inventory.removeProduct("A123");
-// } catch (error) {
-//   console.error("An error occurred:", error.message);
-// }
 
