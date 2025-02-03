@@ -2,7 +2,7 @@ import Product from './Product.js';
 import Clothing from './Clothing.js';
 import Electronics from './Electronics.js';
 
-//Creating a Factory Design patter to create different types of products
+// Creating a Factory Design patter to create different types of products
 class  ProductFactory {
     createProduct(type, id, name, price, quantity, ...args) {
       if (type === "clothing") {

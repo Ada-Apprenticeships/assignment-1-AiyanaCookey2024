@@ -33,7 +33,7 @@ function toFahrenheitKelvin(kelvin){
 function temperatureConversion(temperature, fromScale, toScale){
     try{
         if (temperature === null || temperature === undefined || (typeof temperature === 'string' && isNaN(Number(temperature)))){
-           throw new Error("Invalid temperature input");//checking the temp is valid
+           throw new Error("Invalid temperature input");// Checking the temp is valid
         }
 
         // The Scales have to be converted to UpperCase
@@ -62,50 +62,19 @@ function temperatureConversion(temperature, fromScale, toScale){
         } else if (fromScale === 'K' && toScale ==='F'){
             convertedTemperature = toFahrenheitKelvin(temperature);
         } else {
-            convertedTemperature = temperature; //If there is no conversion needed it willl stay the same
+            convertedTemperature = temperature; //If there is no conversion needed it will stay the same
         }
 
         
         
         return convertedTemperature;
-        //return {temperature, fromScale, toScale, convertedTemperature}
 
         } catch(error) {
             console.error("An error occured:", error.message);
-            throw error ; //This will re-throw the error to be handled again elsewhere
+            throw error ; // This will re-throw the error to be handled again elsewhere
             }
 
         }
-
-// TODO: Validate the input:
-//        - Check if the temperature is null, undefined, or a non-numeric string. If so, throw an error "Invalid temperature input".
-//        - Convert the temperature to a number.
-//        - Normalise fromScale and toScale to uppercase.
-//        - Check if fromScale and toScale are valid ( e.g. 'C', 'F'). If not, throw an error "Invalid conversion type or input scale".
-
-// TODO: Define helper functions for the conversions:
-//        - toFahrenheit(celsius): Converts Celsius to Fahrenheit.
-//        - toCelsius(fahrenheit): Converts Fahrenheit to Celsius.
-//        
-// TODO: Implement the conversion logic:
-//        - Use conditional logic to handle different toScale values (e.g. 'C', 'F').
-//        - Within each condition, handle conversions from different fromScale values (e.g. 'C', 'F') to the target toScale.
-//        - Use the helper functions to perform the actual conversions.
-
-
-
-
-// C to K
-// console.log(temperatureConversion(0, 'C', 'K')); // Should be 273.15
-// console.log(temperatureConversion(25, 'C', 'K')); // Should be 298.15
-// console.log(temperatureConversion(-40, 'C', 'K')); // Should be 233.15
-// console.log(temperatureConversion(100, 'C', 'K')); // Should be 373.15
-
-
-
-
-
-
 
 export default temperatureConversion;
 

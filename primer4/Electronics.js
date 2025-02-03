@@ -23,9 +23,6 @@ export class Electronics extends Product {
         return { ...productDetails, brand: this.#brand, warranty: this.#warranty };// returning the product details
       }
     }
-
-   
-    
     
   export default Electronics;
     

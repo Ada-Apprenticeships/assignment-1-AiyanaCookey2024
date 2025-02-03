@@ -17,9 +17,6 @@ class Inventory {
     if (!product) {
       throw new Error(`Product with ID ${id} not found.`);
     }
-    if(this.#products.size === 0) {
-      throw new Error(`Inventory is empty.`);
-    }
     product.quantity = quantity;
   }
 
@@ -28,18 +25,12 @@ class Inventory {
     if (!product) {
       throw new Error(`Product with ID ${id} not found.`);
     }
-    if(this.#products.size === 0) {
-      throw new Error(`Inventory is empty.`);
-    }
     return product.getProductDetails();
   }
 
   removeProduct(id) {
     if (!this.#products.has(id)) {
       throw new Error(`Product with ID ${id} not found.`);
-    }
-    if(this.#products.size === 0) {
-      throw new Error(`Inventory is empty.`);
     }
     this.#products.delete(id);
   }

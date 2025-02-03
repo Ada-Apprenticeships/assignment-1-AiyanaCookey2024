@@ -24,8 +24,5 @@ export class Clothing extends Product {
       }
     }
 
-   
-    
-    
   export default Clothing;
     

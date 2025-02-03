@@ -11,10 +11,9 @@ const product2 = new Product("B456", "Jeans", 49.99, 50);
 const clothing1 = new Clothing("C789", "Dress", 89.99, 20, "M", "Cotton");
 const electronics1 = new Electronics("D101", "Smartphone", 699.99, 15, "Apple", "`1 year");
 
-//Add products to the inventory
+// Add products to the inventory
 inventory.addProduct(product1);
 inventory.addProduct(product2);
-console.log(product1.getProductDetails());
 
 inventory.addProduct(clothing1);
 inventory.addProduct(electronics1);
@@ -31,7 +30,7 @@ console.log(retrievedProduct);
 const clothingExists = inventory.getProduct("C789");
 console.log(clothingExists);
 
-//Check if an electronic item exists in the inventory
+// Check if an electronic item exists in the inventory
 const electronicsExists = inventory.getProduct("D101");
 console.log(electronicsExists);
 
@@ -44,11 +43,4 @@ try{
 } catch (error) {
   console.error("An error occurred:", error.message);
 }
-
-
-// console.log("New Product: ", product1.getProductDetails());
-
-//getProductDetails() method is overrideen in teh subclasses to include the unique attributes
-//add additional tests to primer.test.js to verify the functiona;ity of your extended inventory management system
-
 
