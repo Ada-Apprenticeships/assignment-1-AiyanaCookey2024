@@ -3,7 +3,7 @@ import Product from './Product.js';
 import Inventory from './Inventory.js';
 import Electronics from './Electronics.js';
 import Clothing from './Clothing.js';
-import ProductFactory from './Factory.js';
+import ProductFactory from './ProductFactory.js';
 
 describe('Inventory', () => {
   let inventory;

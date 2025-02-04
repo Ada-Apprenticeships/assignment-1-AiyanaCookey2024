@@ -33,7 +33,7 @@ function toFahrenheitKelvin(kelvin){
 function temperatureConversion(temperature, fromScale, toScale){
     try{
         if (temperature === null || temperature === undefined || (typeof temperature === 'string' && isNaN(Number(temperature)))){
-           throw new Error("Invalid temperature input");// Checking the temp is valid
+           throw new Error(`Invalid temperature: ${temperature}. Please enter valid number.`);// Checking the temp is valid
         }
 
         // The Scales have to be converted to UpperCase

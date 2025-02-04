@@ -8,9 +8,9 @@ class Product {
       if (typeof id !== "string" || id === "") {
         throw new Error("ID must be a non-empty string.");
       }
-      // if (this.constructor === Product) {
-      //   throw new Error("Abstract class 'Product' cannot be instantiated.");
-      // }
+      if (quantity < 0){
+        throw new Error("Quantity cannot be negative.");
+      }
       
       this.#id = id;
       this.#name = name;
@@ -19,9 +19,6 @@ class Product {
     }
 
     get id() {
-      if (typeof this.#id !== "string" || this.#id === "") {
-        throw new Error("ID must be a non-empty string.");
-      }
       return this.#id;
     }
     get name() {

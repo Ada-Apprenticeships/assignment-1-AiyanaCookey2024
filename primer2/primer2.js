@@ -10,8 +10,7 @@ function shuffleAndDeal(numPlayers, cardsPerPlayer, numDecks = 1){
 // Create a deck of cards
 let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
 let values = ["Ace", "King", "Queen", "Jack",
-                "2", "3", "4", "5", "6", "7",
-                "8", "9", "10"];
+            "2", "3", "4", "5", "6", "7","8", "9", "10"];
 let deck = []; //representing the entire deck of cards
 
 // Creating the deck
@@ -26,7 +25,7 @@ let deck = []; //representing the entire deck of cards
 //Going through the last card to the first card in the deck - using the Fischer-Yates Shuffle
     for (let i = deck.length - 1; i > 0; i--){
         let j = Math.floor(Math.random() * (i + 1)); 
-        [deck[i], deck[j]] = [deck[j], deck[i]];
+        [deck[i], deck[j]] = [deck[j], deck[i]]; // The elements are swapped
     }
 
 // Deal the cards to the players
